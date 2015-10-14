@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-
+sudo groupmod -g $(stat -c "%g" /var/run/docker.sock) splunk
 if [ "$1" = 'splunk' ]; then
   shift
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
